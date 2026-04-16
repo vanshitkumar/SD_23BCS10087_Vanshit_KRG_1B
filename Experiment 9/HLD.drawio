@@ -1,0 +1,319 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="WAnjJ-WZA1M24wWgd-aH">
+    <mxGraphModel dx="2352" dy="1844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-72" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="90" width="290" x="1080" y="1850" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="140" width="256" x="1300" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;b&gt;To Design a&amp;nbsp;Ticket Booking System:&amp;nbsp;&lt;/b&gt;A platform that allows users to discover and purchase tickets for various entertainment options like movies, concerts, and live events.&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;div&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1. Functional Requirements&lt;/b&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;The user must be able to discover events using filters such as the Event Title, the City/Location, and the specific Date of the show.&lt;/li&gt;&lt;li&gt;The user must be able to view comprehensive details for a specific event, including the No of Seats (available vs. occupied), a detailed Description, and Metadata (cast, duration, language, ratings&lt;/li&gt;&lt;li&gt;The system must allow a user to select a seat and complete a transaction to Book a Ticket.&lt;/li&gt;&lt;/ol&gt;&lt;div&gt;&lt;b&gt;2. Non-Functional Requirements&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;The system must be designed to support 100 Million Daily Active Users (DAU)&lt;/li&gt;&lt;li&gt;When users are searching or viewing an event, the system must prioritize being &quot;always online&quot; (High Availability). It is better to show slightly older data than to show an error page.&lt;/li&gt;&lt;li&gt;When a user is booking a specific ticket, the system must be Highly Consistent. Two people should never be able to book the exact same seat at the exact same time.&lt;/li&gt;&lt;/ol&gt;&lt;div&gt;&lt;b&gt;3. Core Entities&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;User&lt;/li&gt;&lt;li&gt;Event (Movie, Concert, Play)&lt;/li&gt;&lt;li&gt;Venue (Theater, Stadium, Arena)&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Show (Specific timing of an event at a venue)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Seat&lt;/li&gt;&lt;li&gt;Booking (Transaction record)&lt;/li&gt;&lt;/ol&gt;&lt;div&gt;&lt;b&gt;4. API Design&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: bold; white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;1.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;GET /v1/events&amp;nbsp; &amp;nbsp; &amp;nbsp; (&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Query Params: title, city, date&lt;/span&gt;&lt;code data-path-to-node=&quot;7,0,1,0,0&quot; data-index-in-node=&quot;27&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/code&gt;&lt;/div&gt;&lt;div&gt;&lt;code data-path-to-node=&quot;7,0,1,0,0&quot; data-index-in-node=&quot;27&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;--&amp;nbsp;&lt;span data-path-to-node=&quot;7,0,1,1,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Returns a list of matching events.&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/code&gt;&lt;/div&gt;&lt;div&gt;&lt;code data-path-to-node=&quot;7,0,1,0,0&quot; data-index-in-node=&quot;27&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span data-path-to-node=&quot;7,0,1,1,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/code&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;2.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;GET /v1/events/{event_id}&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;--&amp;nbsp;&lt;/span&gt;&lt;span data-path-to-node=&quot;7,1,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Returns detailed metadata and description for a specific event.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-path-to-node=&quot;7,1,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-path-to-node=&quot;7,1,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;3.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;GET /v1/shows/{show_id}/seats&lt;/span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-path-to-node=&quot;7,1,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;--&amp;nbsp;&lt;/span&gt;&lt;span data-path-to-node=&quot;7,2,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Returns the seat map and current availability status for a specific show.&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-path-to-node=&quot;7,1,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span data-path-to-node=&quot;7,2,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-path-to-node=&quot;7,1,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span data-path-to-node=&quot;7,2,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;4.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;POST /v1/bookings&amp;nbsp;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;(BODY: event, show and seat)&lt;/span&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-path-to-node=&quot;7,1,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span data-path-to-node=&quot;7,2,1,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;font-style: italic; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;font-style: normal;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;--&amp;nbsp;&lt;/span&gt;&lt;span data-path-to-node=&quot;7,3,1,1,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Locks the selected seats and initiates the booking transaction.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="630" width="490" x="-80" y="-70" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-65" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="656" y="1570" />
+              <mxPoint x="656" y="1553" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-67" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-70" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-61">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="2135" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="255" width="230" x="352.5" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-3" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.users;" value="Users" vertex="1">
+          <mxGeometry height="60" width="60" x="216.32" y="1501.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-4" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_device_gateway;" value="" vertex="1">
+          <mxGeometry height="110" width="117.53" x="408.73" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b style=&quot;text-wrap-mode: nowrap;&quot;&gt;API Gateway &amp;amp; Load Balancers&lt;/b&gt;&lt;div&gt;&lt;b style=&quot;text-wrap-mode: nowrap;&quot;&gt;Routing&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;text-wrap-mode: nowrap;&quot;&gt;Authorization and Authentication&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;Rate Limiting&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;SSL Termination&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="220" x="357.5" y="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-6" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.016;entryY=0.334;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="352.50000000000006" y="1531.67" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-57" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1090" y="1580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Event Service" vertex="1">
+          <mxGeometry height="60" width="200" x="730" y="1522.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-63" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-85" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HX6bfBNfl0VPmnkVLwpI-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Booking Service" vertex="1">
+          <mxGeometry height="60" width="200" x="730" y="1717.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-49" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HX6bfBNfl0VPmnkVLwpI-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="1345" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-14" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/Search_Services.svg;" value="" vertex="1">
+          <mxGeometry height="52" width="72" x="790" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-15" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="Search Service" vertex="1">
+          <mxGeometry height="30" width="100" x="780" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-16" parent="1" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.payment;" value="Payment" vertex="1">
+          <mxGeometry height="70" width="120" x="698" y="1865" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Payment Service" vertex="1">
+          <mxGeometry height="30" width="110" x="703" y="1935" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-24" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="1185" as="sourcePoint" />
+            <mxPoint x="640" y="1185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-18" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/User_Resource.svg;" value="" vertex="1">
+          <mxGeometry height="50" width="48" x="461" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-26" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.579;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="485" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-19" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="User Service" vertex="1">
+          <mxGeometry height="30" width="90" x="440" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-25" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="1192" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-20" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" value="" vertex="1">
+          <mxGeometry height="64" width="48" x="650" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-23" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.296;entryY=0.876;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Authentication&lt;div&gt;&amp;amp;&lt;/div&gt;&lt;div&gt;Authorization&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="500" y="1331" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="User DB" vertex="1">
+          <mxGeometry height="30" width="60" x="644" y="1224" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-38" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1430" y="1682.5" />
+              <mxPoint x="1430" y="1682.5" />
+            </Array>
+            <mxPoint x="1430" y="1612.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-41" connectable="0" parent="HX6bfBNfl0VPmnkVLwpI-38" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Async Replication" vertex="1">
+          <mxGeometry relative="1" x="-0.1201" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-46" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-29" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" value="" vertex="1">
+          <mxGeometry height="64" width="48" x="1409" y="1679" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-30" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Bookings and Events DB" vertex="1">
+          <mxGeometry height="50" width="86" x="1390" y="1735.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-32" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" value="" vertex="1">
+          <mxGeometry height="64" width="48" x="1326" y="1488.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-33" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" value="" vertex="1">
+          <mxGeometry height="64" width="48" x="1404" y="1489.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-34" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" value="" vertex="1">
+          <mxGeometry height="64" width="48" x="1476" y="1490.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Read Replicas" vertex="1">
+          <mxGeometry height="30" width="110" x="1373" y="1561.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-50" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="1330" />
+              <mxPoint x="1250" y="1330" />
+            </Array>
+            <mxPoint x="870" y="1330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-42" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.elasticsearch_service;" value="" vertex="1">
+          <mxGeometry height="70" width="70" x="1380" y="1310" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-43" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="Amazon Elastic Search&lt;div&gt;(indexed by City, Date etc)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="160" x="1335" y="1375" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-48" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HX6bfBNfl0VPmnkVLwpI-42">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1688" y="1350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-44" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="CDC &lt;br&gt;Pipeline" vertex="1">
+          <mxGeometry height="90" width="75" x="1650" y="1495" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-51" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;" value="" vertex="1">
+          <mxGeometry height="42" width="50" x="1100" y="1548.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-52" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Events Details" vertex="1">
+          <mxGeometry height="30" width="60" x="1095" y="1596.5" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-58" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.007;entryY=0.319;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" target="HX6bfBNfl0VPmnkVLwpI-37">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1115" y="1540" />
+              <mxPoint x="1115" y="1515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-59" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.users;" value="Event Organisers" vertex="1">
+          <mxGeometry height="60" width="60" x="216.32" y="1610" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-60" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.016;entryY=0.334;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="352.50000000000006" y="1640.17" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-62" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;div&gt;Catalog Service&lt;/div&gt;(Event Details Management Service)" vertex="1">
+          <mxGeometry height="60" width="200" x="730" y="2090" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-64" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.01;entryY=0.506;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="686" y="1490" />
+              <mxPoint x="686" y="1346" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-71" parent="1" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.kafka;" value="" vertex="1">
+          <mxGeometry height="42" width="56.699999999999996" x="1110" y="1860" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-74" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-73" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Notification Service" vertex="1">
+          <mxGeometry height="60" width="200" x="1530" y="1865" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-76" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Apache Kafka" vertex="1">
+          <mxGeometry height="30" width="60" x="1109" y="1904" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-81" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-77" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="1080" y="2020" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-78" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Payment&lt;div&gt;Gateway&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="1080" y="2083" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-79" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-77">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="1900" />
+              <mxPoint x="980" y="2050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-80" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Third Party Payment Prociders" vertex="1">
+          <mxGeometry height="60" width="120" x="1206" y="2020" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-82" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="2060" />
+              <mxPoint x="970" y="1918" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-83" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Success / Failure" vertex="1">
+          <mxGeometry height="30" width="60" x="890" y="1925" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-84" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Seat Status Check and then Lock the seat with TTL" vertex="1">
+          <mxGeometry height="30" width="175" x="1080" y="1713" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-87" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.003;entryY=0.354;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-72">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="949" y="1890" />
+              <mxPoint x="949" y="1882" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-88" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Booking Success / Failure" vertex="1">
+          <mxGeometry height="30" width="100" x="920" y="1850" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-92" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1412" y="1806" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Booking Status Consumer&lt;div&gt;(Updates Lock and Seat Status)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1206" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-91" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HX6bfBNfl0VPmnkVLwpI-90">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="1800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-93" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Notification Providers&lt;div&gt;(SMTPs, FCN, APNS)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="210" x="1520" y="2010" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-94" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.527;entryY=-0.045;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-95" parent="1" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.s3;fillColor=#E05243;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="970" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-96" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="S3&lt;div&gt;(Static Assets Related&lt;/div&gt;&lt;div&gt;to event)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="160" x="920" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-97" edge="1" parent="1" source="HX6bfBNfl0VPmnkVLwpI-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="HX6bfBNfl0VPmnkVLwpI-95">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="1430" />
+              <mxPoint x="950" y="1430" />
+              <mxPoint x="950" y="1400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HX6bfBNfl0VPmnkVLwpI-98" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Booking/Payment Notifications" vertex="1">
+          <mxGeometry height="30" width="60" x="1220" y="1880" as="geometry" />
+        </mxCell>
+        <mxCell id="t_WZei9zVG-OLPZbtzlG-1" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;li&gt;&lt;p data-path-to-node=&quot;11,0,0&quot;&gt;&lt;b data-path-to-node=&quot;11,0,0&quot; data-index-in-node=&quot;0&quot;&gt;Database Schema:&lt;/b&gt;&lt;/p&gt;&lt;/li&gt;&lt;span data-path-to-node=&quot;11,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;ol style=&quot;&quot;&gt;&lt;li style=&quot;&quot;&gt;&lt;span data-path-to-node=&quot;11,0,0&quot; data-index-in-node=&quot;0&quot; style=&quot;font-weight: bold; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;User:&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;code data-path-to-node=&quot;11,0,0&quot; data-index-in-node=&quot;6&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,0,0&quot; data-index-in-node=&quot;10&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;name&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,0,0&quot; data-index-in-node=&quot;16&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;email&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,0,0&quot; data-index-in-node=&quot;23&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;phone&lt;/code&gt;&lt;/li&gt;&lt;li style=&quot;font-weight: bold;&quot;&gt;&lt;b data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Event:&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;code data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;7&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;11&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;title&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;18&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;description&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;31&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;cast&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;37&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;duration&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;47&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;language&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,1,0&quot; data-index-in-node=&quot;57&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;rating&lt;/code&gt;&lt;/li&gt;&lt;li style=&quot;font-weight: bold;&quot;&gt;&lt;b data-path-to-node=&quot;11,2,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Venue:&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;code data-path-to-node=&quot;11,2,0&quot; data-index-in-node=&quot;7&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,2,0&quot; data-index-in-node=&quot;11&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;name&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,2,0&quot; data-index-in-node=&quot;17&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;city&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,2,0&quot; data-index-in-node=&quot;23&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;address&lt;/code&gt;&lt;/li&gt;&lt;li style=&quot;font-weight: bold;&quot;&gt;&lt;b data-path-to-node=&quot;11,3,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Show:&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;code data-path-to-node=&quot;11,3,0&quot; data-index-in-node=&quot;6&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,3,0&quot; data-index-in-node=&quot;10&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;event_id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,3,0&quot; data-index-in-node=&quot;20&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;venue_id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,3,0&quot; data-index-in-node=&quot;30&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;start_time&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,3,0&quot; data-index-in-node=&quot;42&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;end_time&lt;/code&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;b data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;0&quot; style=&quot;font-weight: bold; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Seat:&lt;/b&gt;&lt;span style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;code data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;6&quot; style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;id&lt;/code&gt;&lt;span style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;10&quot; style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;venue_id&lt;/code&gt;&lt;span style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;20&quot; style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;row_label&lt;/code&gt;&lt;span style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;31&quot; style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;seat_number&lt;/code&gt;&lt;span style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;44&quot; style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;type, &lt;/code&gt;&lt;code data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;44&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;status&lt;/b&gt;&lt;/code&gt;&lt;code data-path-to-node=&quot;11,4,0&quot; data-index-in-node=&quot;44&quot; style=&quot;font-weight: normal; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; (available/locked/booked)&lt;/code&gt;&lt;/li&gt;&lt;li style=&quot;font-weight: bold;&quot;&gt;&lt;b data-path-to-node=&quot;11,6,0&quot; data-index-in-node=&quot;0&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Booking:&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;code data-path-to-node=&quot;11,6,0&quot; data-index-in-node=&quot;9&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,6,0&quot; data-index-in-node=&quot;13&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;user_id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,6,0&quot; data-index-in-node=&quot;22&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;show_id&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,6,0&quot; data-index-in-node=&quot;31&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;total_amount&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,6,0&quot; data-index-in-node=&quot;45&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;status&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;, &lt;/span&gt;&lt;code data-path-to-node=&quot;11,6,0&quot; data-index-in-node=&quot;53&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-weight: normal;&quot;&gt;timestamp&lt;/code&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="160" width="640" x="1060" y="1080" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
