@@ -1,0 +1,95 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="5Q4U072YzJlVsGleJBPV">
+    <mxGraphModel dx="1205" dy="903" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DlT33TXFPsiy7raDLHE2-4" edge="1" parent="1" source="DlT33TXFPsiy7raDLHE2-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-1" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Browser.svg;" value="" vertex="1">
+          <mxGeometry height="52" width="65" x="200" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Browser" vertex="1">
+          <mxGeometry height="30" width="60" x="200" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="280" width="120" x="400" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-7" parent="1" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.api_gateway;fillColor=#D9A741;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="93" width="76.5" x="425" y="269" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Gatway" vertex="1">
+          <mxGeometry height="30" width="60" x="430" y="362" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Ticket Booking Service" vertex="1">
+          <mxGeometry height="60" width="120" x="770" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-10" edge="1" parent="1" source="DlT33TXFPsiy7raDLHE2-16" style="endArrow=classic;html=1;rounded=0;exitX=1.017;exitY=0.475;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="DlT33TXFPsiy7raDLHE2-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="580" y="360" as="sourcePoint" />
+            <mxPoint x="630" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-11" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;" value="" vertex="1">
+          <mxGeometry height="42" width="50" x="1200" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Distributed Seat Lock" vertex="1">
+          <mxGeometry height="30" width="60" x="1190" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-13" edge="1" parent="1" source="DlT33TXFPsiy7raDLHE2-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.02;entryY=0.452;entryDx=0;entryDy=0;entryPerimeter=0;" target="DlT33TXFPsiy7raDLHE2-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-14" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;" value="" vertex="1">
+          <mxGeometry height="42" width="50" x="610" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Rate Limiter (ZSET)" vertex="1">
+          <mxGeometry height="30" width="90" x="590" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-17" edge="1" parent="1" source="DlT33TXFPsiy7raDLHE2-6" style="endArrow=classic;html=1;rounded=0;exitX=1.017;exitY=0.475;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="DlT33TXFPsiy7raDLHE2-16" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="522" y="333" as="sourcePoint" />
+            <mxPoint x="770" y="332" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Rate Limiter" vertex="1">
+          <mxGeometry height="60" width="100" x="590" y="302" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-18" edge="1" parent="1" source="DlT33TXFPsiy7raDLHE2-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.6;entryY=-0.024;entryDx=0;entryDy=0;entryPerimeter=0;" target="DlT33TXFPsiy7raDLHE2-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-19" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;" value="" vertex="1">
+          <mxGeometry height="42" width="50" x="820" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-20" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.2;entryY=-0.095;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="841" y="360" as="sourcePoint" />
+            <mxPoint x="841" y="424.01" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-21" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Demo Database" vertex="1">
+          <mxGeometry height="80" width="60" x="860" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-22" edge="1" parent="1" source="DlT33TXFPsiy7raDLHE2-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" target="DlT33TXFPsiy7raDLHE2-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="449" />
+              <mxPoint x="780" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Event Metadata Cache" vertex="1">
+          <mxGeometry height="30" width="60" x="780" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-24" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;" value="" vertex="1">
+          <mxGeometry height="42" width="50" x="940" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="DlT33TXFPsiy7raDLHE2-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Virtual Queue (FIFO)" vertex="1">
+          <mxGeometry height="30" width="60" x="935" y="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

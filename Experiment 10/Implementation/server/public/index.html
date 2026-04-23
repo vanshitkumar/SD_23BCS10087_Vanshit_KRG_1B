@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlashTix — System Design Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── SCANLINE OVERLAY ───────────────────────────────────────────────── -->
+<div class="scanlines"></div>
+<div class="noise"></div>
+
+<!-- ── HEADER ─────────────────────────────────────────────────────────── -->
+<header>
+  <div class="logo">
+    <span class="logo-bracket">[</span>FLASH<span class="logo-accent">TIX</span><span class="logo-bracket">]</span>
+    <span class="logo-sub">SYSTEM DESIGN DEMO</span>
+  </div>
+  <div class="header-stats">
+    <div class="hstat" id="hstat-available"><span class="hstat-val">—</span><span class="hstat-label">AVAILABLE</span></div>
+    <div class="hstat locked"><span class="hstat-val">—</span><span class="hstat-label">LOCKED</span></div>
+    <div class="hstat booked"><span class="hstat-val">—</span><span class="hstat-label">BOOKED</span></div>
+    <div class="hstat queue"><span class="hstat-val">—</span><span class="hstat-label">IN QUEUE</span></div>
+  </div>
+  <div class="header-right">
+    <div class="live-dot"></div><span class="live-label">LIVE</span>
+    <div class="conn-status" id="conn-status">CONNECTING…</div>
+  </div>
+</header>
+
+<!-- ── MAIN GRID ───────────────────────────────────────────────────────── -->
+<main>
+
+  <!-- LEFT COLUMN -->
+  <div class="col-left">
+
+    <!-- Architecture Diagram -->
+    <section class="card arch-card">
+      <div class="card-title">⬡ SYSTEM ARCHITECTURE</div>
+      <div class="arch-diagram" id="arch-diagram">
+        <div class="arch-node client" id="arch-client">
+          <div class="arch-icon">👤</div>
+          <div class="arch-label">CLIENT</div>
+          <div class="arch-sub">Browser</div>
+        </div>
+        <div class="arch-arrow" id="arr-1">
+          <div class="arch-arr-line"></div>
+          <div class="arch-arr-label">HTTP/SSE</div>
+        </div>
+        <div class="arch-node ratelimit" id="arch-rate">
+          <div class="arch-icon">🛡</div>
+          <div class="arch-label">RATE LIMITER</div>
+          <div class="arch-sub">Sliding Window</div>
+        </div>
+        <div class="arch-arrow" id="arr-2">
+          <div class="arch-arr-line"></div>
+          <div class="arch-arr-label">Commands</div>
+        </div>
+        <div class="arch-node api" id="arch-api">
+          <div class="arch-icon">⚡</div>
+          <div class="arch-label">API SERVER</div>
+          <div class="arch-sub">Express.js :3000</div>
+        </div>
+        <div class="arch-arrow" id="arr-3">
+          <div class="arch-arr-line"></div>
+          <div class="arch-arr-label">RESP Protocol</div>
+        </div>
+        <div class="arch-node redis" id="arch-redis">
+          <div class="arch-icon">🔴</div>
+          <div class="arch-label">REDIS</div>
+          <div class="arch-sub">:6379</div>
+        </div>
+      </div>
+      <div class="arch-patterns">
+        <div class="pattern-tag" id="pt-lock">🔒 Dist. Lock</div>
+        <div class="pattern-tag" id="pt-rate">⏱ Rate Limit</div>
+        <div class="pattern-tag" id="pt-queue">🔢 Virt. Queue</div>
+        <div class="pattern-tag" id="pt-cache">💾 Caching</div>
+        <div class="pattern-tag" id="pt-atomic">⚛ Atomic Ops</div>
+        <div class="pattern-tag" id="pt-ttl">⏰ TTL Expiry</div>
+      </div>
+    </section>
+
+    <!-- Principles Panel -->
+    <section class="card principles-card">
+      <div class="card-title">⬡ REDIS PATTERNS IN USE</div>
+      <div class="principles-list">
+        <div class="principle" id="p-distlock">
+          <div class="p-icon">🔒</div>
+          <div class="p-info">
+            <div class="p-name">Distributed Lock</div>
+            <div class="p-cmd">SET seat:lock:{id} {userId} NX EX 120</div>
+            <div class="p-desc">Atomic NX prevents two users from locking the same seat simultaneously — no race condition possible.</div>
+          </div>
+        </div>
+        <div class="principle" id="p-ratelimit">
+          <div class="p-icon">⏱</div>
+          <div class="p-info">
+            <div class="p-name">Sliding Window Rate Limit</div>
+            <div class="p-cmd">ZREMRANGEBYSCORE → ZADD → ZCARD</div>
+            <div class="p-desc">Sorted set of timestamps per user. Old entries pruned each request; count decides allow/deny.</div>
+          </div>
+        </div>
+        <div class="principle" id="p-queue">
+          <div class="p-icon">🔢</div>
+          <div class="p-info">
+            <div class="p-name">Virtual Queue (FIFO)</div>
+            <div class="p-cmd">ZADD queue:{event} {timestamp} {userId}</div>
+            <div class="p-desc">Sorted set keyed by join timestamp. ZRANK gives O(log N) position lookup; top-N users can book.</div>
+          </div>
+        </div>
+        <div class="principle" id="p-cache">
+          <div class="p-icon">💾</div>
+          <div class="p-info">
+            <div class="p-name">Read-Through Cache</div>
+            <div class="p-cmd">GET cache:event → SET cache:event … EX 30</div>
+            <div class="p-desc">Event metadata cached for 30s. Cache invalidated on booking confirmation via MULTI/EXEC.</div>
+          </div>
+        </div>
+        <div class="principle" id="p-atomic">
+          <div class="p-icon">⚛</div>
+          <div class="p-info">
+            <div class="p-name">Atomic Transactions</div>
+            <div class="p-cmd">MULTI → HSET → DEL → INCR → ZREM → EXEC</div>
+            <div class="p-desc">MULTI/EXEC ensures seat mark, lock delete, counter increment, queue removal all succeed or all fail.</div>
+          </div>
+        </div>
+        <div class="principle" id="p-ttl">
+          <div class="p-icon">⏰</div>
+          <div class="p-info">
+            <div class="p-name">TTL-Based Lock Expiry</div>
+            <div class="p-cmd">SET … EX 120 (auto-expires)</div>
+            <div class="p-desc">Locks auto-expire in 120s — no deadlocks if user abandons booking. Seat automatically returns to available pool.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- CENTER COLUMN -->
+  <div class="col-center">
+
+    <!-- Event Banner -->
+    <section class="card event-card">
+      <div class="event-cat">CONCERT · FLASH SALE</div>
+      <div class="event-name" id="event-name">Loading…</div>
+      <div class="event-meta">
+        <span id="event-venue">—</span>
+        <span class="sep">·</span>
+        <span id="event-date">—</span>
+        <span class="sep">·</span>
+        <span class="event-price" id="event-price">—</span>
+      </div>
+    </section>
+
+    <!-- User Setup -->
+    <section class="card user-card">
+      <div class="card-title">⬡ YOUR SESSION</div>
+      <div class="user-row">
+        <div class="user-id-wrap">
+          <span class="user-id-label">USER ID</span>
+          <span class="user-id" id="user-id-display">—</span>
+        </div>
+        <div class="user-controls">
+          <button class="btn btn-secondary" id="btn-new-user">↻ NEW USER</button>
+          <button class="btn btn-primary" id="btn-join-queue">JOIN QUEUE</button>
+        </div>
+      </div>
+      <div class="queue-status" id="queue-status">
+        <div class="qs-label">QUEUE POSITION</div>
+        <div class="qs-val" id="qs-position">—</div>
+        <div class="qs-total" id="qs-total"></div>
+      </div>
+    </section>
+
+    <!-- Seat Map -->
+    <section class="card seats-card">
+      <div class="card-title">
+        ⬡ SEAT MAP
+        <span class="legend">
+          <span class="leg-item available">● Available</span>
+          <span class="leg-item locked">● Locked</span>
+          <span class="leg-item booked">● Booked</span>
+          <span class="leg-item mine">● Your Lock</span>
+        </span>
+      </div>
+      <div class="stage-label">◀ STAGE ▶</div>
+      <div class="seat-grid" id="seat-grid"></div>
+      <div class="lock-timer" id="lock-timer" style="display:none">
+        🔒 Seat <span id="lt-seat">—</span> locked — confirm booking in <span id="lt-countdown">120</span>s
+      </div>
+    </section>
+
+    <!-- Booking Confirmation -->
+    <section class="card confirm-card" id="confirm-card" style="display:none">
+      <div class="card-title">⬡ CONFIRM BOOKING</div>
+      <div class="confirm-info">
+        <div class="ci-row"><span>Seat</span><span id="ci-seat">—</span></div>
+        <div class="ci-row"><span>Event</span><span id="ci-event">—</span></div>
+        <div class="ci-row"><span>Price</span><span id="ci-price">—</span></div>
+        <div class="ci-row"><span>Lock expires</span><span id="ci-expiry">—</span></div>
+      </div>
+      <div class="confirm-btns">
+        <button class="btn btn-danger" id="btn-release">RELEASE SEAT</button>
+        <button class="btn btn-confirm" id="btn-confirm">✓ CONFIRM &amp; PAY</button>
+      </div>
+    </section>
+
+    <!-- Booking Success -->
+    <section class="card success-card" id="success-card" style="display:none">
+      <div class="success-glyph">✓</div>
+      <div class="success-title">BOOKING CONFIRMED</div>
+      <div class="success-booking-id" id="success-bid">—</div>
+      <div class="success-meta" id="success-meta">—</div>
+      <button class="btn btn-secondary" id="btn-book-again">BOOK ANOTHER</button>
+    </section>
+
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="col-right">
+
+    <!-- Rate Limit Gauge -->
+    <section class="card rl-card">
+      <div class="card-title">⬡ RATE LIMITER</div>
+      <div class="rl-info">10 req / 10s sliding window</div>
+      <div class="rl-gauge-wrap">
+        <div class="rl-gauge" id="rl-gauge"></div>
+      </div>
+      <div class="rl-label">
+        <span id="rl-used">0</span> / 10 requests used
+      </div>
+      <div class="rl-429" id="rl-429" style="display:none">⚠ RATE LIMITED</div>
+    </section>
+
+    <!-- Queue Visualizer -->
+    <section class="card queue-card">
+      <div class="card-title">⬡ VIRTUAL QUEUE</div>
+      <div class="queue-list" id="queue-list">
+        <div class="queue-empty">Queue is empty</div>
+      </div>
+    </section>
+
+    <!-- Redis Operations Log -->
+    <section class="card log-card">
+      <div class="card-title">⬡ REDIS OPS LOG <span class="log-badge" id="log-count">0</span></div>
+      <div class="log-terminal" id="log-terminal">
+        <div class="log-welcome">Connecting to Redis stream…</div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="card controls-card">
+      <div class="card-title">⬡ DEV CONTROLS</div>
+      <button class="btn btn-full btn-danger" id="btn-reset">↺ RESET ALL SEATS</button>
+      <button class="btn btn-full btn-secondary" id="btn-sim">⚡ SIMULATE TRAFFIC</button>
+    </section>
+
+  </div>
+</main>
+
+<!-- ── BOOKING MODAL (rate-limited error) ─────────────────────────────── -->
+<div class="modal-overlay" id="modal-overlay" style="display:none">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">ERROR</div>
+    <div class="modal-body" id="modal-body">—</div>
+    <button class="btn btn-primary" onclick="document.getElementById('modal-overlay').style.display='none'">DISMISS</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
